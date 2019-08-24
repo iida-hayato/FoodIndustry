@@ -81,7 +81,8 @@ script.on_event({defines.events.on_tick}, function (e)
 
 	-- TODO добавить сюда sleep modifier, это основной блок по которому считаются все расходы
 	if e.tick % 5 == 0 and settings.global["food-industry-calculate"].value then
-		for index,player in pairs(game.connected_players) do
+		for _, player in pairs(game.connected_players) do
+			index = player.index
 			fi_global_variables_set(index) -- set global variables default data of connected players
 			if player.connected then
 				if settings.global["food-industry-calculate"].value then
@@ -550,7 +551,8 @@ script.on_event(defines.events.on_research_finished, function(event)
 	end
 	if event.research.name == "food-energy-efficiency-1" then
 		local force = event.research.force
-		for index,player in pairs(game.players) do
+		for _, player in pairs(game.players) do
+			index = player.index
 			if player.force == force then
 				-- TODO уменьшить эти все коеффициенты на -0.4
 				global.update_delay[index] = 1.1
@@ -559,7 +561,8 @@ script.on_event(defines.events.on_research_finished, function(event)
 		end
 	elseif event.research.name == "food-energy-efficiency-2" then
 		local force = event.research.force
-		for index,player in pairs(game.players) do
+		for _, player in pairs(game.players) do
+			index = player.index
 			if player.force == force then
 				global.update_delay[index] = 1.2
 				u_gui()
@@ -575,7 +578,8 @@ script.on_event(defines.events.on_research_finished, function(event)
 		end
 	elseif event.research.name == "food-energy-efficiency-4" then
 		local force = event.research.force
-		for index,player in pairs(game.players) do
+		for _, player in pairs(game.players) do
+			index = player.index
 			if player.force == force then
 				global.update_delay[index] = 1.4
 				u_gui()
@@ -583,7 +587,8 @@ script.on_event(defines.events.on_research_finished, function(event)
 		end
 	elseif event.research.name == "food-energy-efficiency-5" then
 		local force = event.research.force
-		for index,player in pairs(game.players) do
+		for _, player in pairs(game.players) do
+			index = player.index
 			if player.force == force then
 				global.update_delay[index] = 1.5
 				u_gui()
@@ -591,7 +596,8 @@ script.on_event(defines.events.on_research_finished, function(event)
 		end
 	elseif event.research.name == "food-energy-efficiency-6" then
 		local force = event.research.force
-		for index,player in pairs(game.players) do
+		for _, player in pairs(game.players) do
+			index = player.index
 			if player.force == force then
 				global.update_delay[index] = 1.6
 				u_gui()
@@ -599,7 +605,8 @@ script.on_event(defines.events.on_research_finished, function(event)
 		end
 	elseif event.research.name == "food-energy-efficiency-7" then
 		local force = event.research.force
-		for index,player in pairs(game.players) do
+		for _, player in pairs(game.players) do
+			index = player.index
 			if player.force == force then
 				global.update_delay[index] = 1.7
 				u_gui()
@@ -607,7 +614,8 @@ script.on_event(defines.events.on_research_finished, function(event)
 		end
 	elseif event.research.name == "food-energy-efficiency-8" then
 		local force = event.research.force
-		for index,player in pairs(game.players) do
+		for _, player in pairs(game.players) do
+			index = player.index
 			if player.force == force then
 				global.update_delay[index] = 1.8
 				u_gui()
@@ -615,7 +623,8 @@ script.on_event(defines.events.on_research_finished, function(event)
 		end
 	elseif event.research.name == "food-energy-efficiency-9" then
 		local force = event.research.force
-		for index,player in pairs(game.players) do
+		for _, player in pairs(game.players) do
+			index = player.index
 			if player.force == force then
 				global.update_delay[index] = 1.9
 				u_gui()
@@ -623,7 +632,8 @@ script.on_event(defines.events.on_research_finished, function(event)
 		end
 	elseif event.research.name == "food-energy-efficiency-10" then
 		local force = event.research.force
-		for index,player in pairs(game.players) do
+		for _, player in pairs(game.players) do
+			index = player.index
 			if player.force == force then
 				global.update_delay[index] = 2
 				u_gui()
@@ -631,7 +641,8 @@ script.on_event(defines.events.on_research_finished, function(event)
 		end
 	elseif event.research.name == "food-energy-efficiency-11" then
 		local force = event.research.force
-		for index,player in pairs(game.players) do
+		for _, player in pairs(game.players) do
+			index = player.index
 			if player.force == force then
 				global.update_delay[index] = 0.6 + event.research.level * 0.1
 				if event.research.level > 50 then
@@ -646,7 +657,8 @@ script.on_event(defines.events.on_research_finished, function(event)
 	local force = event.research.force
 	if event.research.name == "fi-tech-more-energy-1" then
 		--if  pcall(function () event.research.name = tech[1] .. "-" tech[2] end) then
-			for index,player in pairs(game.players) do
+			for _, player in pairs(game.players) do
+				index = player.index
 				if player.valid and player.connected and player.character then
 					if player.force == force then
 						local leftGui = player.gui.left
@@ -664,7 +676,8 @@ script.on_event(defines.events.on_research_finished, function(event)
 			end
 		--end
 	elseif event.research.name == "fi-tech-more-energy-2" then
-		for index,player in pairs(game.players) do
+		for _, player in pairs(game.players) do
+			index = player.index
 			if player.valid and player.connected and player.character then
 				if player.force == force then
 					local leftGui = player.gui.left
@@ -679,7 +692,8 @@ script.on_event(defines.events.on_research_finished, function(event)
 			end
 		end
 	elseif event.research.name == "fi-tech-more-energy-3" then
-		for index,player in pairs(game.players) do
+		for _, player in pairs(game.players) do
+			index = player.index
 			if player.valid and player.connected and player.character then
 				if player.force == force then
 					local leftGui = player.gui.left
@@ -694,7 +708,8 @@ script.on_event(defines.events.on_research_finished, function(event)
 			end
 		end
 	elseif event.research.name == "fi-tech-more-energy-4" then
-		for index,player in pairs(game.players) do
+		for _, player in pairs(game.players) do
+			index = player.index
 			if player.valid and player.connected and player.character then
 				if player.force == force then
 					local leftGui = player.gui.left
@@ -709,7 +724,8 @@ script.on_event(defines.events.on_research_finished, function(event)
 			end
 		end
 	elseif event.research.name == "fi-tech-more-energy-5" then
-		for index,player in pairs(game.players) do
+		for _, player in pairs(game.players) do
+			index = player.index
 			if player.valid and player.connected and player.character then
 				if player.force == force then
 					local leftGui = player.gui.left
@@ -731,7 +747,8 @@ end
 
 script.on_event(defines.events.on_rocket_launched, function(event)
 		if event.rocket.get_item_count("satellite") > 0 then
-			for index,player in pairs(game.players) do
+			for _, player in pairs(game.players) do
+				index = player.index
 				if player.force == event.rocket.force then
 					if not global.foods[index] then
 						return
@@ -763,7 +780,8 @@ function u_gui()
 		return
 	end
 	if global.energy and global.drinks and global.fullness then
-		for index, player in pairs(game.players) do
+		for _, player in pairs(game.players) do
+			index = player.index
 			if global.energy[index] and global.drinks[index] and global.fullness[index] then -- if exists values in global tables
 				if player.valid and player.connected then
 					
@@ -904,7 +922,7 @@ end
 
 -- TODO When eat_button is clicked
 script.on_event(defines.events.on_gui_click, function(event)
-	for index,player in pairs(game.players) do
+	for _, player in pairs(game.players) do
 		if player.connected then
 			if event.element.name == "eat_button" then
 				--element
