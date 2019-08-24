@@ -101,6 +101,7 @@ data:extend({
         category = "food-cattle",
         order = "w-d-b",
         main_product = "biter-meat",
+        energy_required = 30,
         ingredients =
         {
             {"cattle", 1}
