@@ -286,8 +286,7 @@ script.on_event({defines.events.on_tick}, function (e)
 					end
 					
 					
-					u_gui()
-					figui.update(index, player)
+
 
 					-- for achievement "overweight" > 90% for 30 minutes
 					if global.energy[index] > global.energy_max[index] * 0.9 then
@@ -302,7 +301,9 @@ script.on_event({defines.events.on_tick}, function (e)
 					
 				end
 			--end
+			figui.update(index, player)
 		end
+		u_gui()
 	end
 	
 	-- TODO move to effects_add(...)/effects_remove(...)
