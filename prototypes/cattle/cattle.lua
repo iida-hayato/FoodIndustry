@@ -183,7 +183,7 @@ data:extend({
         healing_per_tick = 0.02,
         collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
         selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
-        pollution_absorption_absolute = 20,
+        pollution_absorption_absolute = 0,
         pollution_absorption_proportional = 0.01,
         corpse = "spitter-spawner-corpse",
         dying_explosion = "blood-explosion-huge",
